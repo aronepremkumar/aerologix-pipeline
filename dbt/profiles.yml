@@ -1,0 +1,12 @@
+aerologix_project:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: your-gcp-project-id
+      dataset: aerologix_staging
+      threads: 4
+      keyfile: /opt/airflow/dbt/aerologix-491105-8921ba81006a.json # Path inside container
+      location: US
+      priority: interactive

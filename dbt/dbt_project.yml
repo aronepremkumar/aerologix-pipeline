@@ -1,0 +1,18 @@
+name: 'aerologix_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'aerologix_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+models:
+  aerologix_dbt:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
