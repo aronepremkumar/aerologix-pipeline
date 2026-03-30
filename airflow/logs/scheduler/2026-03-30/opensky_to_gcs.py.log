@@ -5132,3 +5132,31 @@ SyntaxError: unterminated string literal (detected at line 56)
 [2026-03-30T16:53:29.276+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:53:29.275+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2026-03-30T16:53:29.284+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:53:29.284+0000] {dag.py:3823} INFO - Setting next_dagrun for aerologix_opensky_to_gcs_v2 to None, run_after=None
 [2026-03-30T16:53:29.298+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/opensky_to_gcs.py took 0.275 seconds
+[2026-03-30T16:53:59.539+0000] {processor.py:161} INFO - Started process (PID=1578) to work on /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:53:59.541+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/opensky_to_gcs.py for tasks to queue
+[2026-03-30T16:53:59.543+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:53:59.542+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:53:59.759+0000] {processor.py:840} INFO - DAG(s) 'aerologix_opensky_to_gcs_v2' retrieved from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:53:59.785+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:53:59.784+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-03-30T16:53:59.803+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:53:59.802+0000] {dag.py:3823} INFO - Setting next_dagrun for aerologix_opensky_to_gcs_v2 to None, run_after=None
+[2026-03-30T16:53:59.820+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/opensky_to_gcs.py took 0.290 seconds
+[2026-03-30T16:54:30.031+0000] {processor.py:161} INFO - Started process (PID=1584) to work on /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:54:30.033+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/opensky_to_gcs.py for tasks to queue
+[2026-03-30T16:54:30.034+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:54:30.033+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:54:30.252+0000] {processor.py:840} INFO - DAG(s) 'aerologix_opensky_to_gcs_v2' retrieved from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:54:30.301+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:54:30.301+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-03-30T16:54:30.311+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:54:30.311+0000] {dag.py:3823} INFO - Setting next_dagrun for aerologix_opensky_to_gcs_v2 to None, run_after=None
+[2026-03-30T16:54:30.320+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/opensky_to_gcs.py took 0.304 seconds
+[2026-03-30T16:55:00.575+0000] {processor.py:161} INFO - Started process (PID=1590) to work on /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:55:00.577+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/opensky_to_gcs.py for tasks to queue
+[2026-03-30T16:55:00.578+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:55:00.577+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:55:00.794+0000] {processor.py:840} INFO - DAG(s) 'aerologix_opensky_to_gcs_v2' retrieved from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:55:00.830+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:55:00.830+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-03-30T16:55:00.881+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:55:00.881+0000] {dag.py:3823} INFO - Setting next_dagrun for aerologix_opensky_to_gcs_v2 to None, run_after=None
+[2026-03-30T16:55:00.914+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/opensky_to_gcs.py took 0.350 seconds
+[2026-03-30T16:55:31.140+0000] {processor.py:161} INFO - Started process (PID=1596) to work on /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:55:31.144+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/opensky_to_gcs.py for tasks to queue
+[2026-03-30T16:55:31.144+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:55:31.144+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:55:31.372+0000] {processor.py:840} INFO - DAG(s) 'aerologix_opensky_to_gcs_v2' retrieved from /opt/airflow/dags/opensky_to_gcs.py
+[2026-03-30T16:55:31.403+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:55:31.403+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2026-03-30T16:55:31.412+0000] {logging_mixin.py:188} INFO - [2026-03-30T16:55:31.412+0000] {dag.py:3823} INFO - Setting next_dagrun for aerologix_opensky_to_gcs_v2 to None, run_after=None
+[2026-03-30T16:55:31.423+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/opensky_to_gcs.py took 0.289 seconds
