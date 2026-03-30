@@ -1,0 +1,5 @@
+dbt/*.json
+*.json
+.terraform/
+__pycache__/
+venv/
