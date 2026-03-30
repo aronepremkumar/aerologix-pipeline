@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: aerologix-491105
+    schema: aerologix_staging # This must match where your external table lives
+    tables:
+      - name: arrivals
+        description: "Raw flight data from OpenSky GCS bucket"
