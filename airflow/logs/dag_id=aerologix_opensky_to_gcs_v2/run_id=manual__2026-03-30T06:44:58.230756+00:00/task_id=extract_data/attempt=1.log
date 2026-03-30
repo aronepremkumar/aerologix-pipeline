@@ -1,0 +1,18 @@
+[2026-03-30T06:44:59.801+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data manual__2026-03-30T06:44:58.230756+00:00 [queued]>
+[2026-03-30T06:44:59.810+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data manual__2026-03-30T06:44:58.230756+00:00 [queued]>
+[2026-03-30T06:44:59.810+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-03-30T06:44:59.817+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_data> on 2026-03-30 06:44:58.230756+00:00
+[2026-03-30T06:44:59.828+0000] {standard_task_runner.py:60} INFO - Started process 228 to run task
+[2026-03-30T06:44:59.832+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'aerologix_opensky_to_gcs_v2', 'extract_data', 'manual__2026-03-30T06:44:58.230756+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/opensky_to_gcs.py', '--cfg-path', '/tmp/tmpauauz066']
+[2026-03-30T06:44:59.836+0000] {standard_task_runner.py:88} INFO - Job 62: Subtask extract_data
+[2026-03-30T06:44:59.887+0000] {task_command.py:423} INFO - Running <TaskInstance: aerologix_opensky_to_gcs_v2.extract_data manual__2026-03-30T06:44:58.230756+00:00 [running]> on host 74448be3b8f0
+[2026-03-30T06:44:59.920+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='aerologix_opensky_to_gcs_v2' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-30T06:44:58.230756+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-30T06:44:58.230756+00:00'
+[2026-03-30T06:44:59.921+0000] {logging_mixin.py:188} INFO - Checking KSFO for the last 4 hours...
+[2026-03-30T06:45:01.273+0000] {logging_mixin.py:188} INFO - Checking KJFK for the last 4 hours...
+[2026-03-30T06:45:02.374+0000] {logging_mixin.py:188} INFO - Checking KLAX for the last 4 hours...
+[2026-03-30T06:45:03.458+0000] {logging_mixin.py:188} INFO - Checking KATL for the last 4 hours...
+[2026-03-30T06:45:04.680+0000] {logging_mixin.py:188} INFO - Checking EGLL for the last 4 hours...
+[2026-03-30T06:45:05.245+0000] {taskinstance.py:2360} INFO - No flights found. Skipping upload to avoid FileNotFoundError.
+[2026-03-30T06:45:05.267+0000] {taskinstance.py:1138} INFO - Marking task as SKIPPED. dag_id=aerologix_opensky_to_gcs_v2, task_id=extract_data, execution_date=20260330T064458, start_date=20260330T064459, end_date=20260330T064505
+[2026-03-30T06:45:05.341+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-30T06:45:05.354+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

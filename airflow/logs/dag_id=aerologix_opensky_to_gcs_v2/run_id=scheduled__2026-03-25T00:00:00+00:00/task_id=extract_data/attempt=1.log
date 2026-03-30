@@ -1,0 +1,28 @@
+[2026-03-28T20:19:45.306+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-25T00:00:00+00:00 [queued]>
+[2026-03-28T20:19:45.316+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-25T00:00:00+00:00 [queued]>
+[2026-03-28T20:19:45.319+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-03-28T20:19:45.369+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_data> on 2026-03-25 00:00:00+00:00
+[2026-03-28T20:19:45.431+0000] {standard_task_runner.py:60} INFO - Started process 277 to run task
+[2026-03-28T20:19:45.546+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'aerologix_opensky_to_gcs_v2', 'extract_data', 'scheduled__2026-03-25T00:00:00+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/opensky_to_gcs.py', '--cfg-path', '/tmp/tmpo7_xhh0i']
+[2026-03-28T20:19:45.671+0000] {standard_task_runner.py:88} INFO - Job 18: Subtask extract_data
+[2026-03-28T20:19:46.253+0000] {task_command.py:423} INFO - Running <TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-25T00:00:00+00:00 [running]> on host 8764bcae9c59
+[2026-03-28T20:19:46.915+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='aerologix_opensky_to_gcs_v2' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-25T00:00:00+00:00'
+[2026-03-28T20:19:46.931+0000] {logging_mixin.py:188} INFO - Fetching data for KSFO from 1774396800 to 1774483200...
+[2026-03-28T20:19:47.480+0000] {logging_mixin.py:188} INFO - Request failed: 403 Client Error:  for url: https://opensky-network.org/api/flights/arrival?airport=KSFO&begin=1774396800&end=1774483200
+[2026-03-28T20:19:47.482+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/opensky_to_gcs.py", line 27, in fetch_opensky_data
+    response.raise_for_status() # Raises error for 401, 404, 500 etc.
+  File "/home/airflow/.local/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error:  for url: https://opensky-network.org/api/flights/arrival?airport=KSFO&begin=1774396800&end=1774483200
+[2026-03-28T20:19:47.501+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=aerologix_opensky_to_gcs_v2, task_id=extract_data, execution_date=20260325T000000, start_date=20260328T201945, end_date=20260328T201947
+[2026-03-28T20:19:47.512+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 18 for task extract_data (403 Client Error:  for url: https://opensky-network.org/api/flights/arrival?airport=KSFO&begin=1774396800&end=1774483200; 277)
+[2026-03-28T20:19:47.544+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-03-28T20:19:47.581+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

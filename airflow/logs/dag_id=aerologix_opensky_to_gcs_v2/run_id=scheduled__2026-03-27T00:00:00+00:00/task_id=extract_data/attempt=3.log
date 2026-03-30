@@ -1,0 +1,26 @@
+[2026-03-28T21:25:57.637+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-27T00:00:00+00:00 [queued]>
+[2026-03-28T21:25:57.639+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-27T00:00:00+00:00 [queued]>
+[2026-03-28T21:25:57.640+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 3
+[2026-03-28T21:25:57.644+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_data> on 2026-03-27 00:00:00+00:00
+[2026-03-28T21:25:57.649+0000] {standard_task_runner.py:60} INFO - Started process 1114 to run task
+[2026-03-28T21:25:57.651+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'aerologix_opensky_to_gcs_v2', 'extract_data', 'scheduled__2026-03-27T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/opensky_to_gcs.py', '--cfg-path', '/tmp/tmpqpsphacc']
+[2026-03-28T21:25:57.656+0000] {standard_task_runner.py:88} INFO - Job 34: Subtask extract_data
+[2026-03-28T21:25:57.687+0000] {task_command.py:423} INFO - Running <TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-27T00:00:00+00:00 [running]> on host 8764bcae9c59
+[2026-03-28T21:25:57.767+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='aerologix_opensky_to_gcs_v2' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-27T00:00:00+00:00'
+[2026-03-28T21:25:57.777+0000] {logging_mixin.py:188} INFO - Requesting LIVE arrivals for the last 2 hours...
+[2026-03-28T21:25:59.134+0000] {logging_mixin.py:188} INFO - Task Error: OpenSky rejection: []
+[2026-03-28T21:25:59.136+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/opensky_to_gcs.py", line 46, in fetch_opensky_data
+    raise ValueError(f"OpenSky rejection: {response.text}")
+ValueError: OpenSky rejection: []
+[2026-03-28T21:25:59.152+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=aerologix_opensky_to_gcs_v2, task_id=extract_data, execution_date=20260327T000000, start_date=20260328T212557, end_date=20260328T212559
+[2026-03-28T21:25:59.161+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 34 for task extract_data (OpenSky rejection: []; 1114)
+[2026-03-28T21:25:59.173+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-03-28T21:25:59.191+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,17 @@
+[2026-03-28T21:28:18.899+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-27T00:00:00+00:00 [queued]>
+[2026-03-28T21:28:18.904+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-27T00:00:00+00:00 [queued]>
+[2026-03-28T21:28:18.904+0000] {taskinstance.py:2170} INFO - Starting attempt 4 of 4
+[2026-03-28T21:28:18.911+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_data> on 2026-03-27 00:00:00+00:00
+[2026-03-28T21:28:18.917+0000] {standard_task_runner.py:60} INFO - Started process 1153 to run task
+[2026-03-28T21:28:18.920+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'aerologix_opensky_to_gcs_v2', 'extract_data', 'scheduled__2026-03-27T00:00:00+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/opensky_to_gcs.py', '--cfg-path', '/tmp/tmporcmvre6']
+[2026-03-28T21:28:18.922+0000] {standard_task_runner.py:88} INFO - Job 35: Subtask extract_data
+[2026-03-28T21:28:18.951+0000] {task_command.py:423} INFO - Running <TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-27T00:00:00+00:00 [running]> on host 8764bcae9c59
+[2026-03-28T21:28:18.994+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='aerologix_opensky_to_gcs_v2' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-27T00:00:00+00:00'
+[2026-03-28T21:28:18.996+0000] {logging_mixin.py:188} INFO - Checking KSFO for the last 4 hours...
+[2026-03-28T21:28:20.362+0000] {logging_mixin.py:188} INFO - Checking KJFK for the last 4 hours...
+[2026-03-28T21:28:21.573+0000] {logging_mixin.py:188} INFO - Checking KLAX for the last 4 hours...
+[2026-03-28T21:28:22.767+0000] {logging_mixin.py:188} INFO - ✅ Found 1 flights at KLAX!
+[2026-03-28T21:28:23.315+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-03-28T21:28:23.323+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=aerologix_opensky_to_gcs_v2, task_id=extract_data, execution_date=20260327T000000, start_date=20260328T212818, end_date=20260328T212823
+[2026-03-28T21:28:23.358+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-28T21:28:23.387+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

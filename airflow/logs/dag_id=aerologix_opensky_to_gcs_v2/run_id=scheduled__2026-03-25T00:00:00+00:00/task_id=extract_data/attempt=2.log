@@ -1,0 +1,27 @@
+[2026-03-28T21:09:14.031+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-25T00:00:00+00:00 [queued]>
+[2026-03-28T21:09:14.034+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-25T00:00:00+00:00 [queued]>
+[2026-03-28T21:09:14.035+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2026-03-28T21:09:14.040+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_data> on 2026-03-25 00:00:00+00:00
+[2026-03-28T21:09:14.043+0000] {standard_task_runner.py:60} INFO - Started process 799 to run task
+[2026-03-28T21:09:14.047+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'aerologix_opensky_to_gcs_v2', 'extract_data', 'scheduled__2026-03-25T00:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/opensky_to_gcs.py', '--cfg-path', '/tmp/tmpuz0m9q6_']
+[2026-03-28T21:09:14.051+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask extract_data
+[2026-03-28T21:09:14.076+0000] {task_command.py:423} INFO - Running <TaskInstance: aerologix_opensky_to_gcs_v2.extract_data scheduled__2026-03-25T00:00:00+00:00 [running]> on host 8764bcae9c59
+[2026-03-28T21:09:14.108+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='aerologix_opensky_to_gcs_v2' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-25T00:00:00+00:00'
+[2026-03-28T21:09:14.110+0000] {logging_mixin.py:188} INFO - Fetching data for KSFO from 1774396800 to 1774483200...
+[2026-03-28T21:09:14.719+0000] {logging_mixin.py:188} INFO - ERROR: 403 Forbidden. OpenSky rejected the username or password.
+[2026-03-28T21:09:14.720+0000] {logging_mixin.py:188} INFO - Request failed: Authentication Failed with OpenSky
+[2026-03-28T21:09:14.722+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/opensky_to_gcs.py", line 34, in fetch_opensky_data
+    raise ValueError("Authentication Failed with OpenSky")
+ValueError: Authentication Failed with OpenSky
+[2026-03-28T21:09:14.756+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=aerologix_opensky_to_gcs_v2, task_id=extract_data, execution_date=20260325T000000, start_date=20260328T210914, end_date=20260328T210914
+[2026-03-28T21:09:14.772+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 26 for task extract_data (Authentication Failed with OpenSky; 799)
+[2026-03-28T21:09:14.810+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-03-28T21:09:14.833+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

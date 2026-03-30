@@ -6,18 +6,54 @@ services:
       - POSTGRES_USER=airflow
       - POSTGRES_PASSWORD=airflow
       - POSTGRES_DB=airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   airflow-webserver:
     build: .
     restart: always
     environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/gcp_key.json
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
-      - ../dbt:/opt/airflow/dbt  # Mounts your dbt project
+      # --- NEW SHARED VOLUME ---
+      - ./data:/opt/airflow/data
+      - ../dbt/aerologix-491105-8921ba81006a.json:/opt/airflow/gcp_key.json
     ports:
       - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
     command: webserver
+
+  airflow-scheduler:
+    build: .
+    restart: always
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - OPENSKY_USERNAME=aronearokiasami@gmail.com
+      - OPENSKY_PASSWORD=Welcome123$
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/gcp_key.json
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      # --- NEW SHARED VOLUME ---
+      - ./data:/opt/airflow/data
+      - ../dbt/aerologix-491105-8921ba81006a.json:/opt/airflow/gcp_key.json
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: scheduler
+
+volumes:
+  postgres_data:
