@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   postgres:
     image: postgres:13
@@ -25,7 +26,6 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
-      # --- NEW SHARED VOLUME ---
       - ./data:/opt/airflow/data
       - ../dbt/aerologix-491105-8921ba81006a.json:/opt/airflow/gcp_key.json
     ports:
@@ -47,7 +47,6 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
-      # --- NEW SHARED VOLUME ---
       - ./data:/opt/airflow/data
       - ../dbt/aerologix-491105-8921ba81006a.json:/opt/airflow/gcp_key.json
     depends_on:
